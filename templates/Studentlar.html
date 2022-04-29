@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Studentlar</title>
+</head>
+<body>
+<h1>Studentalr Sralofhasiga hush kelibsiz...</h1>
+<form>
+    <input name="qidirish" placeholder="Student ismi?">
+
+    <button>Qidirish</button>
+
+</form>
+{%for i in hammasi%}
+<p>{{i}}</p>
+<button><a href="/student_t/{{i.id}}">Taxrirlash</a></button>
+{%endfor%}
+
+<br>
+<hr>
+<form method="post" action="/studetlar/">{{csrf_token}}
+    <label>Ism:</label>
+    <input type="text" name="ismi" placeholder="Ismni kiriting...">
+    <label>Yosh:</label>
+    <input type="number" name="y" placeholder="Yoshingizni kiriting...">
+    <label>Kurs:</label>
+    <input type="text"  name="r" placeholder="Nechanchi kursligingizni kiriting...">
+    <label>Student raqam:</label>
+    <input type="number" placeholder="Student id  kiriting...">
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
